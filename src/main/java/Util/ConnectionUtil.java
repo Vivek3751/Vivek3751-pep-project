@@ -45,8 +45,15 @@ public class ConnectionUtil {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }
-
+        } 
+        else
+			try {
+				if (connection.isClosed())
+				return connection = DriverManager.getConnection(url, username, password);
+			} catch (SQLException e) {
+				e.printStackTrace();
+		}
+        
         return connection;
     }
     /**
