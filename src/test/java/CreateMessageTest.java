@@ -100,19 +100,19 @@ public class CreateMessageTest {
 
 
     /**
-     * Sending an http request to POST localhost:8080/messages with message length greater than 254
+     * Sending an http request to POST localhost:8080/messages with message length greater than 255
      * 
      * Expected Response:
      *  Status Code: 400
      *  Response Body: 
      */
     @Test
-    public void createMessageMessageGreaterThan254() throws IOException, InterruptedException {
+    public void createMessageMessageGreaterThan255() throws IOException, InterruptedException {
         HttpRequest postMessageRequest = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080/messages"))
                 .POST(HttpRequest.BodyPublishers.ofString("{"+
                         "\"posted_by\":1, " +
-                        "\"message_text\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", " +
+                        "\"message_text\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", " +
                         "\"time_posted_epoch\": 1669947792}"))
                 .header("Content-Type", "application/json")
                 .build();
